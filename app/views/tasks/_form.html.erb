@@ -1,20 +1,29 @@
-<%= form_for(@task) do |f| %>
-    <% if task.errors.any? %>
-        <div id="error_explanation">
-            <ul>
-                <% task.errors.full_tasks.each do |task| %>
-                    <li><%= task %></li>
-                <% end %>
+<div class="row">
+    <div class="col-xs-12, col-md-4 col-md-offset-2, col-lg-6 col-lag offset-3 ">
+
+
+        <%= form_for(task) do |f| %>
+            <% if task.errors.any? %>
+                <div class="alert alert-warning"
+                    <ul>
+                        <% task.errors.full_messages.each do |task| %>
+                            <li><%= task %></li>
+                        <% end %>
             
-            </ul>
-        </div>
-    <% end %>
+                    </ul>
+                </div>
+            <% end %>
 
-    <%= f.label :status, 'ステータス' %>
-    <%= f.text_field :status %>
-
-    <%= f.label :content, 'メッセージ' %>
-    <%= f.text_field :content %>
-
-    <%= f.submit '投稿' %>
-<% end %>
+            <div class="form-group">
+                <%= f.label :status, 'ステータス' %>
+                <%= f.text_field :status, class: "form-controll" %>
+            </div>
+            <div class="form-group">
+            <%= f.label :content, 'メッセージ' %>
+            <%= f.text_field :content, class: "form-controll" %>
+            </div>
+            
+            <%= f.submit '投稿', class: 'btn btn-primary' %>
+        <% end %>
+    </div>    
+</div>
